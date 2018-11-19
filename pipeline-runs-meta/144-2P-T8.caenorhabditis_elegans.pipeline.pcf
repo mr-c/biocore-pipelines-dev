@@ -1,0 +1,21 @@
+#!/bin/sh 
+#
+##Full path to the cwl file
+#
+CWL_SCRIPT=/opt/software/external/ggr-cwl/GGR-cwl/v1.0/RNA-seq_pipeline/pipeline-se-unstranded-with-sjdb.cwl
+#
+##Full path to the pipeline json file
+#
+JSON_FILE=/data/projects/Biocore/biocore-pipelines/rna_seq/json/caenorhabditis_elegans/144-2P-T8.pipeline.json
+#
+## Command line options 
+#
+CWL_COMMAND_OPTIONS="--no-container --debug"
+#
+## The owner of the pipeline results directory 
+#
+PIPELINE_OWNER=bioadmin
+#
+## Pipeline results directory 
+#
+RESULTS_DIR=`dirname $JSON_FILE`/results
