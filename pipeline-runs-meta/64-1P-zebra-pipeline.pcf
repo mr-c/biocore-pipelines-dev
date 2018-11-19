@@ -1,0 +1,22 @@
+#!/bin/sh 
+#
+##Full path to the cwl file
+#
+#CWL_SCRIPT=/data/projects/Biocore/nathaniel_project_rna_seq/GGR-cwl/v1.0/RNA-seq_pipeline/Run1_s1/pipeline-se-unstranded-with-sjdb.cwl
+CWL_SCRIPT=/opt/software/external/ggr-cwl/GGR-cwl/v1.0/RNA-seq_pipeline/pipeline-se-unstranded-with-sjdb.cwl
+#
+##Full path to the pipeline json file
+#
+JSON_FILE=/data/projects/Biocore/nathaniel_project_rna_seq/GGR-cwl/v1.0/RNA-seq_pipeline/Run1_s1/64-1P-pipeline-zebra.json
+#
+## Command line options 
+#
+CWL_COMMAND_OPTIONS="--no-container --debug"
+#
+## The owner of the pipeline results directory 
+#
+PIPELINE_OWNER=bioadmin
+#
+## Pipeline results directory 
+#
+RESULTS_DIR=`dirname $JSON_FILE`/results
