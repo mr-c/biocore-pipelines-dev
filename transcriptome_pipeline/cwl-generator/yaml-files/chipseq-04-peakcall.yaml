@@ -1,7 +1,0 @@
--
-  sample_types:
-    - treatment
--
-  sample_types:
-    - treatment
-    - control
