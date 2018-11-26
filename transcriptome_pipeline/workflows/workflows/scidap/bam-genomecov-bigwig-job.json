@@ -1,0 +1,13 @@
+{
+    "input": {
+        "class": "File",
+        "path": "./SRR1031972.Aligned.sortedByCoord.out.bam"
+    },
+    "genomeFile": {
+        "class": "File",
+        "path": "./dm3/chrNameLength.txt"
+    },
+    "scale": 1,
+    "dept":"-bg",
+    "bigWig": "./SRR1031972.bigwig"
+}
