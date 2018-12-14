@@ -1,0 +1,24 @@
+{
+  "input_read1_fastq_files": [
+    {
+      "class": "File",
+      "path": "/data/scratch/rna-seq/AmbyAmp1/14-09157-3A_AAACAT_L001_R1_001.fastq"
+    }
+  ],
+  "input_read2_fastq_files": [
+    {
+      "class": "File",
+      "path": "/data/scratch/rna-seq/AmbyAmp1/14-09157-3A_AAACAT_L001_R2_001.fastq"
+    }
+  ],
+   "input_read1_adapters_files": [{
+     "class": "File",
+     "path": "/opt/software/external/ggr-cwl/GGR-cwl-v1.0.0/v1.0/default_adapters_fromfastqc_30aug2018.fa"
+  }],
+   "input_read2_adapters_files": [{
+     "class": "File",
+     "path": "/opt/software/external/ggr-cwl/GGR-cwl-v1.0.0/v1.0/default_adapters_fromfastqc_30aug2018.fa"
+  }],
+  "trimmomatic_java_opts": "-Xms128m -Xmx512m"
+}
+
