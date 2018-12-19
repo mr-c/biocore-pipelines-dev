@@ -30,14 +30,14 @@ inputs:
      default: -phred33
      type: string
    trimmomatic_jar_path:
-     default: /usr/share/java/trimmomatic.jar
+     default: /opt/software/external/trimmomatic/trimmomatic-0.36/trimmomatic-0.36.jar
      doc: Trimmomatic Java jar file
      type: string
 outputs:
    output_data_fastq_read1_trimmed_files:
      doc: Trimmed fastq files for paired read 1
      type: File[]
-     outputSource: trimmomatic/output_read1_trimmed_file
+     outputSource: trimmomatic/reads1_trimmed_paired
    output_trimmed_read1_fastq_read_count:
      doc: Trimmed read counts of paired read 1 fastq files
      type: File[]
@@ -45,7 +45,7 @@ outputs:
    output_data_fastq_read2_trimmed_files:
      doc: Trimmed fastq files for paired read 2
      type: File[]
-     outputSource: trimmomatic/output_read2_trimmed_paired_file
+     outputSource: trimmomatic/reads2_trimmed_paired
    output_trimmed_read2_fastq_read_count:
      doc: Trimmed read counts of paired read 2 fastq files
      type: File[]
@@ -66,17 +66,17 @@ steps:
      run: ../trimmomatic/trimmomatic.cwl
      scatterMethod: dotproduct
      scatter:
-     - input_read1_fastq_file
-     - input_read2_fastq_file
+     - reads1
+     - reads2
      - input_adapters_file
      in:
-       input_read1_fastq_file: input_fastq_read1_files
+       reads1: input_fastq_read1_files
        phred:
          valueFrom: '33'
        nthreads: nthreads
        minlen:
          valueFrom: ${return 15}
-       input_read2_fastq_file: input_fastq_read2_files
+       reads2: input_fastq_read2_files
        input_adapters_file: concat_adapters/output_file
        leading:
          valueFrom: ${return 3}
@@ -91,13 +91,13 @@ steps:
          valueFrom: ${return 3}
        trimmomatic_jar_path: trimmomatic_jar_path
      out:
-     - output_read1_trimmed_file
-     - output_read2_trimmed_paired_file
+     - reads1_trimmed_paired
+     - reads2_trimmed_paired
    extract_basename_read1:
      run: ../utils/extract-basename.cwl
      scatter: input_file
      in:
-       input_file: trimmomatic/output_read1_trimmed_file
+       input_file: trimmomatic/reads1_trimmed_paired
      out:
      - output_basename
    count_fastq_reads_read1:
@@ -108,14 +108,14 @@ steps:
      - input_basename
      in:
        input_basename: extract_basename_read1/output_basename
-       input_fastq_file: trimmomatic/output_read1_trimmed_file
+       input_fastq_file: trimmomatic/reads1_trimmed_paired
      out:
      - output_read_count
    extract_basename_read2:
      run: ../utils/extract-basename.cwl
      scatter: input_file
      in:
-       input_file: trimmomatic/output_read2_trimmed_paired_file
+       input_file: trimmomatic/reads2_trimmed_paired
      out:
      - output_basename
    count_fastq_reads_read2:
@@ -126,6 +126,6 @@ steps:
      - input_basename
      in:
        input_basename: extract_basename_read2/output_basename
-       input_fastq_file: trimmomatic/output_read2_trimmed_paired_file
+       input_fastq_file: trimmomatic/reads2_trimmed_paired
      out:
      - output_read_count

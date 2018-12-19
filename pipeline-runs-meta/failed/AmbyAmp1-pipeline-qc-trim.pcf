@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+##Full path to the cwl file
+#
+CWL_SCRIPT=/data/projects/Biocore/biocore-pipelines-dev/rna-seq/AmbyAmp1/pipeline-qc-trim.cwl
+#
+##Full path to the pipeline json file
+#
+JSON_FILE=/data/projects/Biocore/biocore-pipelines-dev/rna-seq/AmbyAmp1/pipeline-qc-trim.json
+#
+## Cwl Command line options
+#
+CWL_COMMAND_OPTIONS="--no-container --debug  --timestamps"
+#
+## The owner of the pipeline results directory 
+#
+PIPELINE_OWNER=bioadmin
+#
+## Pipeline results directory 
+#
+RESULTS_DIR=/data/scratch/rna-seq/AmbyAmp1/results/pipeline-qc-trim.cwl
+#
