@@ -1,2 +1,2 @@
-# biocore-pipelines
-A root directory for Biocore pipeline analysis 
+# biocore-pipelines-dev
+A root directory for Biocore pipeline analysis development
