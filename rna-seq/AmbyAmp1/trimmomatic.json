@@ -1,0 +1,11 @@
+{
+  "input_read1_fastq_file": 
+    { "class": "File","path": "/data/scratch/rna-seq/AmbyAmp1/14-09157-3A_AAACAT_L001_R1_001.fastq" },
+  "input_read2_fastq_file":
+    { "class": "File","path": "/data/scratch/rna-seq/AmbyAmp1/14-09157-3A_AAACAT_L001_R2_001.fastq" },
+  "input_adapters_file":  
+    { "class": "File", "path": "/opt/software/external/trimmomatic/trimmomatic-0.36/adapters/NexteraPE-PE.fa" },
+  "end_mode": "PE",
+  "illuminaclip": "2:30:15",
+  "trimmomatic_jar_path": "/opt/software/external/trimmomatic/trimmomatic-0.36/trimmomatic-0.36.jar"
+}
